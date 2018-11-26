@@ -301,6 +301,7 @@ def max_scoring_num_rolls(dice=six_sided, num_samples=1000):
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
     averaged_dice = make_averaged(roll_dice, num_samples)
+    make_fair_dice
     res_range=[]
     for i in range(1,11):
         res_range.append(averaged_dice(i,dice))
@@ -384,7 +385,12 @@ def final_strategy(score, opponent_score):
     *** YOUR DESCRIPTION HERE ***
     """
     # BEGIN PROBLEM 12
-    return 4  # Replace this statement
+    #return 4  # Replace this statement
+    
+    num_rolls = max_scoring_num_rolls()
+    averaged_dice = make_averaged(roll_dice, num_samples)
+    margin = averaged_dice(num_rolls,six_sided)
+    return swap_strategy(score,opponent_score,margin,num_rolls)
     # END PROBLEM 12
 
 
